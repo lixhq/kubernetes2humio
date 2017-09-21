@@ -1,7 +1,8 @@
 FROM fluent/fluentd-kubernetes-daemonset:v0.12-alpine-elasticsearch
 # defined at https://github.com/fluent/fluentd-kubernetes-daemonset/tree/master/docker-image/v0.12/alpine-elasticsearch
 
-RUN gem install fluent-plugin-record-modifier
+RUN fluent-gem install fluent-plugin-record-modifier
+RUN fluent-gem install fluent-plugin-rewrite-tag-filter
 
 # setup forwarding settings for humio
 COPY kubernetes.conf /fluentd/etc/kubernetes.conf
