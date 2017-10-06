@@ -4,6 +4,7 @@ FROM fluent/fluentd-kubernetes-daemonset:v0.12-alpine-elasticsearch
 RUN fluent-gem install fluent-plugin-record-modifier
 RUN fluent-gem install fluent-plugin-rewrite-tag-filter
 RUN gem install fluent-plugin-concat -v 1.0.0
+RUN gem install fluent-plugin-systemd -v 0.3.1
 
 # setup forwarding settings for humio
 COPY kubernetes.conf /fluentd/etc/kubernetes.conf
