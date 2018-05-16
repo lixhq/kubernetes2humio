@@ -1,0 +1,7 @@
+steps:
+  - name: Build
+    command: ./.buildkite/build.sh
+    env:
+      VERSION: 0.1.0
+      PUSH_IMAGE: 'true'
+    branches: "master"
