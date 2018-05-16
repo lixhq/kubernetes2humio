@@ -1,0 +1,21 @@
+#!/bin/sh
+set -e
+
+REPO=kubernetes2humio
+
+BUILD_NUMBER=${BUILDKITE_BUILD_NUMBER:-local}
+BRANCH=${BUILDKITE_BRANCH:-local}
+BRANCH=${BRANCH//\//_}
+if [ "$IMAGE_TYPE" = "" ]; then
+  FULL_VERSION="$VERSION.$BUILD_NUMBER"
+else
+  FULL_VERSION="$VERSION.$BUILD_NUMBER-$IMAGE_TYPE"
+fi
+DOCKER_IMAGE="local/$REPO"
+
+echo "export REPO=$REPO"
+echo "export BUILD_NUMBER=$BUILD_NUMBER"
+echo "export BRANCH=$BRANCH"
+echo "export VERSION=$VERSION"
+echo "export FULL_VERSION=$FULL_VERSION"
+echo "export DOCKER_IMAGE=$DOCKER_IMAGE"
