@@ -2,7 +2,7 @@ FROM fluent/fluentd-kubernetes-daemonset:v1.1-debian-elasticsearch
 
 RUN export BUILD_DEPS="sudo make gcc g++ libc-dev libffi-dev ruby2.3-dev" && \
     apt-get update && \
-    apt-get install -y $BUILD_DEPS && \
+    apt-get install -y $BUILD_DEPS libsystemd0 && \
     fluent-gem install fluent-plugin-record-modifier && \
     fluent-gem install fluent-plugin-rewrite-tag-filter && \
     fluent-gem install fluent-plugin-concat -v 2.2.2 && \
