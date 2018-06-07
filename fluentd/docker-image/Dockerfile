@@ -7,6 +7,7 @@ RUN export BUILD_DEPS="sudo make gcc g++ libc-dev libffi-dev ruby2.3-dev" && \
     fluent-gem install fluent-plugin-rewrite-tag-filter && \
     fluent-gem install fluent-plugin-concat -v 2.2.2 && \
     fluent-gem install fluent-plugin-systemd -v 1.0.0 && \
+    fluent-gem install fluent-plugin-prometheus && \
     SUDO_FORCE_REMOVE=yes apt-get purge -y --auto-remove -o APT::AutoRemove::RecommendsImportant=false $BUILD_DEPS && \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* /usr/lib/ruby/gems/*/cache/*.gem && \
     gem sources --clear-all
